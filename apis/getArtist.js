@@ -1,13 +1,9 @@
 const { default: axios } = require("axios")
 
-const getResults = (req, res) => {
+const getArtist = (req, res) => {
     try {
         let query = req.search
-        axios.get('https://api.spotify.com/v1/search', {
-            params: {
-                q: query,
-                type: 'track'
-            },
+        axios.get(`https://api.spotify.com/v1/artists/${query}`, {
             headers: {
                 'Authorization': `Bearer ${req.access_token}`,
             },
@@ -19,4 +15,4 @@ const getResults = (req, res) => {
     }
 }
 
-module.exports = getResults
+module.exports = getArtist

@@ -9,11 +9,9 @@ const app = express()
 app.use(cors({
     credentials: true,
     origin: "*",
-    // origin: "http://localhost:3000",
 }))
 app.use(express.json())
 app.use(bodyParser.json());
-
 app.use('/api', router)
 
 app.listen(port, (() => {
